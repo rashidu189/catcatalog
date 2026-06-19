@@ -10,8 +10,8 @@ This project was generated using Angular CLI version 19.2.27.
 
 Ensure the following are installed on your system:
 
-1.Node.js (v22.15.0)
-2.npm (comes with Node.js)
+1.Node.js (v22.15.0)  ,
+2.npm (comes with Node.js)  ,
 3.Angular CLI (19.2.27)
 
 To install Angular CLI globally:
