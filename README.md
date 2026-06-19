@@ -1,8 +1,8 @@
-<!--CatCatalog Modify by Rashidu Milan-->
+<!--Modify by Rashidu Milan-->
 
 # Project Description
 
-1CatCatalog is a web application developed using Angular. The application allows users to  browse a list of cat breeds and view detailed information about each breed. It demonstrates component-based architecture, API integration, and responsive UI design.
+CatCatalog is a web application developed using Angular. The application allows users to  browse a list of cat breeds and view detailed information about each breed. It demonstrates component-based architecture, API integration, and responsive UI design.
 
 This project was generated using Angular CLI version 19.2.27.
 
@@ -82,10 +82,10 @@ https://github.com/rashidu189
 
 
 <!--This is automatically generated when creating an Angular project-->
-
+# This is automatically generated when creating an Angular project
 # CatCatalog
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.27.
 
 ## Development server
 
