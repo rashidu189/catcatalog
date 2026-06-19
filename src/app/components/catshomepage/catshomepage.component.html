@@ -1,0 +1,52 @@
+<div class="app-shell">
+<main class="screen home-screen">
+  <header class="home-header">
+    <h1>Cat Catalog</h1>
+    <p class="home-subtitle">
+      {{ breeds.length || '...' }} breeds to explore
+    </p>
+  </header>
+
+  <div class="search-wrap">
+    <input
+      type="search"
+      class="search-input"
+      placeholder="Search breeds…"
+      [ngModel]="query"
+      (ngModelChange)="onQueryChange($event)"
+      aria-label="Search cat breeds"
+      [disabled]="status !== 'success'"
+    />
+  </div>
+
+  <app-state-block
+    *ngIf="status === 'loading'"
+    kind="loading"
+    message="Fetching breeds…"
+  ></app-state-block>
+
+  <app-state-block
+    *ngIf="status === 'error'"
+    kind="error"
+    [message]="errorMessage"
+    (retry)="load()"
+  ></app-state-block>
+
+  <p class="empty-state"
+     *ngIf="status === 'success' && filteredBreeds.length === 0">
+    No breeds match "{{ query }}".
+  </p>
+
+  <ul class="breed-list"
+      *ngIf="status === 'success' && filteredBreeds.length > 0">
+
+    <li *ngFor="let breed of filteredBreeds">
+      <button class="breed-list-item" (click)="openBreed(breed.id)">
+        <span>{{ breed.name }}</span>
+        <span class="chevron" aria-hidden="true">›</span>
+      </button>
+    </li>
+
+  </ul>
+</main>
+</div>

@@ -1,0 +1,49 @@
+<div class="app-shell">
+<main class="screen detail-screen">
+  <header class="detail-header">
+    <button class="back-btn" (click)="goBack()" aria-label="Back to list">‹</button>
+    <h1>{{ breed ? breed.name : 'Breed details' }}</h1>
+  </header>
+
+  <app-state-block
+    *ngIf="status === 'loading'"
+    kind="loading"
+    message="Fetching breed details…"
+  ></app-state-block>
+
+  <app-state-block
+    *ngIf="status === 'error'"
+    kind="error"
+    [message]="errorMessage"
+    (retry)="load()"
+  ></app-state-block>
+
+  <article class="detail-content" *ngIf="status === 'success' && breed">
+    <img
+      *ngIf="breed.image?.url"
+      class="detail-image"
+      [src]="breed.image?.url"
+      [alt]="breed.name"
+    />
+    <div class="detail-image detail-image--placeholder" *ngIf="!breed.image?.url">
+      No image available
+    </div>
+
+    <dl class="detail-meta">
+      <div class="detail-meta-row">
+        <dt>Origin</dt>
+        <dd>{{ breed.origin || 'Unknown' }}</dd>
+      </div>
+      <div class="detail-meta-row">
+        <dt>Life span</dt>
+        <dd>{{ breed.life_span ? breed.life_span + ' years' : 'Unknown' }}</dd>
+      </div>
+    </dl>
+
+    <section class="detail-description">
+      <h2>Description</h2>
+      <p>{{ breed.description || 'No description available.' }}</p>
+    </section>
+  </article>
+</main>
+</div>
